@@ -13,4 +13,8 @@ public class ProdutoController {
 	public String alterarProduto() {
 		return "";
 	}
+	
+	public String buscarProduto() {
+		return "";
+	}
 }

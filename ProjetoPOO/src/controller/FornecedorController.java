@@ -13,4 +13,8 @@ public class FornecedorController {
 	public String alterarFornecedor() {
 		return "";
 	}
+	
+	public String buscarFornecedor() {
+		return "";
+	}
 }

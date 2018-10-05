@@ -14,4 +14,8 @@ public class ClienteController {
 	public String alterarCliente() {
 		return "";
 	}
+	
+	public String buscarCliente() {
+		return "";
+	}
 }
