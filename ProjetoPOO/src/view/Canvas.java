@@ -14,10 +14,11 @@ public class Canvas extends JPanel{
 	
 	public Canvas() {
 		try {
-			this.imagem = ImageIO.read(new File("venda.png"));
+			this.imagem = ImageIO.read(new File("C:/Users/andre/OneDrive/Documentos/GitHub/Projeto-Final/ProjetoPOO/src/venda.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.print("Qualquer coisa");
 		}
 	}
 	
