@@ -2,11 +2,13 @@ package model.array;
 
 import java.util.ArrayList;
 
+import model.Cliente;
 import model.Fornecedor;
+import model.Pessoa;
 
 public class ArrayFornecedor {
 	
-	private ArrayList<Fornecedor> fornecedores;
+	private ArrayList<Pessoa> fornecedores;
 	
 	private static ArrayFornecedor uniqueInstance;
 	
@@ -24,4 +26,77 @@ public class ArrayFornecedor {
 	public ArrayFornecedor(){
 		fornecedores = new ArrayList<>();
 	}
+	
+	/**
+	 * Percorre o array e caso o fornecedor não esteja cadastrado, cadastra o mesmo.
+	 * 
+	 * @param f , Fornecedor que será cadastrado.
+	 * @return status, true para sucesso e false para fracasso no cadastramento.
+	 */
+	public boolean add(Pessoa f){
+		Boolean status = false;
+		
+		if(search(f.getNome()) == null) {
+			fornecedores.add(f);
+			status = true;
+		}
+		
+		return status;
+	}
+	
+	/**
+	 * Verifica se o fornecedor está cadastrado, caso esteja, o remove.
+	 * 
+	 * @param  nome , fornecedor a ser removido.
+	 * @return result, true para sucesso e false para fracasso.
+	 */
+	public boolean remove(String nome) {
+		Boolean result = false;
+		
+		for(Pessoa fornecedor : fornecedores) {
+			if(fornecedor.getNome().equals(nome)) {
+				fornecedores.remove(fornecedor);
+				result = true;
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Método para alterar um Fornecedor.
+	 * @param f , forneceodr
+	 * @return "status" da operação, "true" para realizado a remoção e "false" para não realizado a remoção.
+	 */
+	public boolean alter(Pessoa f) {
+		Boolean status = false;
+		
+		for(Pessoa fornecedor : fornecedores) {
+			if(fornecedor.getNome().equals(f.getNome())) {
+				remove(f.getNome());
+				add(f);
+				status = true;
+			}
+		}
+		
+		return status;
+	}
+	
+	/**
+	 * Procura por um fornecedor específico.
+	 * @param nome , nome do fornecedor.
+	 * @return pessoa , retorna o fornecedor achado.
+	 */
+	public Fornecedor search(String nome) {
+		Pessoa pessoa = null;
+		
+		for (Pessoa fornecedor : fornecedores) {
+			if(fornecedor.getNome().equals(nome)) {
+				pessoa = fornecedor;
+			}
+		}
+		
+		return (Fornecedor) pessoa;
+	}
+	
 }

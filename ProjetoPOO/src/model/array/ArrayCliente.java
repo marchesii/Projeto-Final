@@ -45,7 +45,7 @@ public class ArrayCliente {
 	
 	/**
 	 * Percorre a array para verificar se já contem o cliente que deverá ser removido, caso tenha ele é removido.
-	 * @param c -> "Cliente" para remoção.
+	 * @param nome -> "Cliente" para remoção.
 	 * @return "status" da operação, "true" para realizado a remoção e "false" para não realizado a remoção.
 	 */
 	public boolean remove(String nome) {
@@ -55,8 +55,6 @@ public class ArrayCliente {
 			if(cliente.getNome().equals(nome)) {
 				clientes.remove(cliente);
 				status = true;
-			}else {
-				status = false;
 			}
 		}
 		
@@ -76,8 +74,6 @@ public class ArrayCliente {
 				remove(c.getNome());
 				add(c);
 				status = true;
-			}else {
-				status = false;
 			}
 		}
 		

@@ -1,5 +1,7 @@
 package model;
 
-public class Fornecedor {
-
+public interface Fornecedor {
+	
+	String venda();
+		
 }
