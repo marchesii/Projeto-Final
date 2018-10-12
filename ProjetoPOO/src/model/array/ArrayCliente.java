@@ -63,6 +63,11 @@ public class ArrayCliente {
 		return status;
 	}
 	
+	/**
+	 * Método para alterar um Cliente.
+	 * @param c
+	 * @return "status" da operação, "true" para realizado a remoção e "false" para não realizado a remoção.
+	 */
 	public boolean alter(Pessoa c) {
 		Boolean status = false;
 		
@@ -79,6 +84,11 @@ public class ArrayCliente {
 		return status;
 	}
 	
+	/**
+	 * Método para buscar um cliente.
+	 * @param nome
+	 * @return Cliente que estava buscando.
+	 */
 	public Cliente search(String nome) {
 		Pessoa pessoa = null;
 		

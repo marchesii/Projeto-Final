@@ -10,7 +10,7 @@ public class PessoaJuridica extends Pessoa{
 	}
 
 	@Override
-	public String compra() {
+	public String comprar() {
 		// TODO Auto-generated method stub
 		return null;
 	}	
