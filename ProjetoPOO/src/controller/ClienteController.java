@@ -18,7 +18,27 @@ public class ClienteController {
 	public ClienteController() {
 		arrayCliente = ArrayCliente.getInstance();
 	}
-
+	
+	/**
+	 * Método para cadastrar um Cliente.
+	 * @param nome
+	 * @param sobreNome
+	 * @param documento
+	 * @param email
+	 * @param telefone
+	 * @param diaNascimento
+	 * @param mesNascimento
+	 * @param anoNascimento
+	 * @param sexo
+	 * @param rua
+	 * @param numero
+	 * @param complemento
+	 * @param bairro
+	 * @param cep
+	 * @param cidade
+	 * @param pessoa
+	 * @return
+	 */
 	public String cadastrarCliente(String nome, String sobreNome, String documento,String email, Integer telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade, Boolean pessoa) {
 		String resposta;
 		
@@ -40,6 +60,11 @@ public class ClienteController {
 		return resposta;	
 	}
 	
+	/**
+	 * Método para excluir um Cliente.
+	 * @param nome
+	 * @return
+	 */
 	public String excluirCliente(String nome) {
 		String resposta;
 		
@@ -52,6 +77,26 @@ public class ClienteController {
 		return resposta;
 	}
 	
+	/**
+	 * Método para alterar um Cliente.
+	 * @param nome
+	 * @param sobreNome
+	 * @param documento
+	 * @param email
+	 * @param telefone
+	 * @param diaNascimento
+	 * @param mesNascimento
+	 * @param anoNascimento
+	 * @param sexo
+	 * @param rua
+	 * @param numero
+	 * @param complemento
+	 * @param bairro
+	 * @param cep
+	 * @param cidade
+	 * @param pessoa
+	 * @return
+	 */
 	public String alterarCliente(String nome, String sobreNome, String documento,String email, Integer telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade, Boolean pessoa) {
 		String resposta;
 		
@@ -73,6 +118,11 @@ public class ClienteController {
 		return resposta;
 	}
 	
+	/**
+	 * 
+	 * @param nome
+	 * @return
+	 */
 	public Cliente buscarCliente(String nome) {
 		Cliente cliente = null;
 		
