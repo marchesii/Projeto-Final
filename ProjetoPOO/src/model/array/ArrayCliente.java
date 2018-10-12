@@ -26,7 +26,7 @@ public class ArrayCliente {
 	private ArrayCliente(){
 		clientes = new ArrayList<>();
 	}
-	
+
 	/**
 	 * Percorre a array para verificar se já contem o cliente cadastrado, caso não, cadastra se contém ele não cadastra.
 	 * @param c -> "Cliente" para o cadastro.
@@ -35,14 +35,10 @@ public class ArrayCliente {
 	public boolean add(Pessoa c){
 		Boolean status = false;
 		
-		for (Pessoa cliente : clientes) {
-			if(cliente.equals(c)) {
-				status = false;
-			}else {
-				clientes.add(cliente);
-				status = true;
-			}
-		}
+		if(search(c.getNome()) == null) {
+			clientes.add(c);
+			status = true;
+		}		
 		
 		return status;
 	}
