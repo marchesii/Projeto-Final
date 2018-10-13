@@ -4,7 +4,7 @@ public class PFinal extends Produto {
 
 	private Double precoVenda;
 	
-	public PFinal(String nome, Integer codigo, Double precoCompra, Integer quantidade, Double precoVenda) {
+	public PFinal(String nome, Integer codigo, Double precoCompra, Integer quantidade) {
 		super(nome, codigo, precoCompra, quantidade);
 		setPrecoVenda(precoVenda);
 	}

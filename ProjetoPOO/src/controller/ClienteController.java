@@ -4,8 +4,6 @@ import model.DataNascimento;
 import model.Endereco;
 import model.Pessoa;
 import model.PessoaFisica;
-import model.Cliente;
-import model.PessoaJuridica;
 import model.array.ArrayCliente;
 
 public class ClienteController {
@@ -13,7 +11,7 @@ public class ClienteController {
 	private ArrayCliente arrayCliente;
 	private DataNascimento dataNascimento;
 	private Endereco endereco;
-	private Cliente cliente;
+	private PessoaFisica cliente;
 	
 	public ClienteController() {
 		arrayCliente = ArrayCliente.getInstance();
@@ -39,17 +37,13 @@ public class ClienteController {
 	 * @param pessoa
 	 * @return
 	 */
-	public String cadastrarCliente(String nome, String sobreNome, String documento,String email, Integer telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade, Boolean pessoa) {
+	public String cadastrarCliente(String nome, String sobreNome, String documento,String email, Double telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade) {
 		String resposta;
 		
 		this.dataNascimento = new DataNascimento(diaNascimento, mesNascimento, anoNascimento);
 		this.endereco = new Endereco(rua, numero, complemento, bairro, cep, cidade);	
 		
-		if (pessoa == true) {
-			cliente = new PessoaFisica(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco, documento);
-		}else {
-			cliente = new PessoaJuridica(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco, documento);
-		}
+		cliente = new PessoaFisica(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco, documento);
 		
 		if(arrayCliente.add((Pessoa) cliente)) {
 			resposta = "Cliente cadastrado.";
@@ -69,9 +63,9 @@ public class ClienteController {
 		String resposta;
 		
 		if(arrayCliente.remove(nome)) {
-			resposta = "Cliente cadastrado.";
+			resposta = "Cliente Excluido.";
 		}else {
-			resposta = "Este cliente já possui cadastro.";
+			resposta = "Este cliente não existe.";
 		}
 		
 		return resposta;
@@ -97,7 +91,7 @@ public class ClienteController {
 	 * @param pessoa
 	 * @return
 	 */
-	public String alterarCliente(String nome, String sobreNome, String documento,String email, Integer telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade, Boolean pessoa) {
+	public String alterarCliente(String nome, String sobreNome, String documento,String email, Double telefone,Integer diaNascimento, Integer mesNascimento, Integer anoNascimento, String sexo, String rua, Integer numero, String complemento, String bairro, Integer cep, String cidade, Boolean pessoa) {
 		String resposta;
 		
 		this.dataNascimento = new DataNascimento(diaNascimento, mesNascimento, anoNascimento);
@@ -105,8 +99,6 @@ public class ClienteController {
 		
 		if (pessoa == true) {
 			cliente = new PessoaFisica(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco, documento);
-		}else {
-			cliente = new PessoaJuridica(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco, documento);
 		}
 		
 		if(arrayCliente.alter((Pessoa) cliente)) {
@@ -123,8 +115,8 @@ public class ClienteController {
 	 * @param nome
 	 * @return
 	 */
-	public Cliente buscarCliente(String nome) {
-		Cliente cliente = null;
+	public PessoaFisica buscarCliente(String nome) {
+		PessoaFisica cliente = null;
 		
 		if(arrayCliente.search(nome) != null) {
 			cliente = arrayCliente.search(nome);

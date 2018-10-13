@@ -2,9 +2,8 @@ package model.array;
 
 import java.util.ArrayList;
 
-import model.Cliente;
-import model.Fornecedor;
 import model.Pessoa;
+import model.PessoaJuridica;
 
 public class ArrayFornecedor {
 	
@@ -87,7 +86,7 @@ public class ArrayFornecedor {
 	 * @param nome , nome do fornecedor.
 	 * @return pessoa , retorna o fornecedor achado.
 	 */
-	public Fornecedor search(String nome) {
+	public PessoaJuridica search(String nome) {
 		Pessoa pessoa = null;
 		
 		for (Pessoa fornecedor : fornecedores) {
@@ -96,7 +95,7 @@ public class ArrayFornecedor {
 			}
 		}
 		
-		return (Fornecedor) pessoa;
+		return (PessoaJuridica) pessoa;
 	}
 	
 }

@@ -3,8 +3,8 @@ package model.array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import model.Cliente;
 import model.Pessoa;
+import model.PessoaFisica;
 
 public class ArrayCliente {
 	
@@ -85,7 +85,7 @@ public class ArrayCliente {
 	 * @param nome
 	 * @return Cliente que estava buscando.
 	 */
-	public Cliente search(String nome) {
+	public PessoaFisica search(String nome) {
 		Pessoa pessoa = null;
 		
 		for (Pessoa cliente : clientes) {
@@ -94,6 +94,6 @@ public class ArrayCliente {
 			}
 		}
 		
-		return (Cliente) pessoa;
+		return (PessoaFisica) pessoa;
 	}
 }

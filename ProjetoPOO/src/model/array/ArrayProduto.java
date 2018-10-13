@@ -2,7 +2,6 @@ package model.array;
 
 import java.util.ArrayList;
 
-import model.Fornecedor;
 import model.Pessoa;
 import model.Produto;
 

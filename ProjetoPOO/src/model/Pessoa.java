@@ -1,16 +1,22 @@
 package model;
 
-public abstract class Pessoa implements Cliente{
-	private String nome;
-	private String sobreNome;
-	private String email;
-	private Integer telefone;
-	private DataNascimento dataNascimento;
-	private String sexo;
-	private Endereco endereco;
+public abstract class Pessoa{
+	protected String nome;
+	protected String sobreNome;
+	protected String email;
+	protected Double telefone;
+	protected DataNascimento dataNascimento;
+	protected String sexo;
+	protected Endereco endereco;
 	
-	public Pessoa(String nome, String sobreNome, String email, Integer telefone, DataNascimento dataNascimento, String sexo, Endereco endereco){
-		
+	public Pessoa(String nome, String sobreNome, String email, Double telefone, DataNascimento dataNascimento, String sexo, Endereco endereco){
+		setNome(nome);
+		setSobreNome(sobreNome);
+		setEmail(email);
+		setTelefone(telefone);
+		setDataNascimento(dataNascimento);
+		setSexo(sexo);
+		setEndereco(endereco);
 	}
 	
 	public String getNome() {
@@ -37,11 +43,11 @@ public abstract class Pessoa implements Cliente{
 		this.email = email;
 	}
 
-	public Integer getTelefone() {
+	public Double getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Integer telefone) {
+	public void setTelefone(Double telefone) {
 		this.telefone = telefone;
 	}
 
