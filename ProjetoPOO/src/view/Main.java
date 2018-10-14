@@ -182,7 +182,7 @@ public class Main {
 			      	sexo = "l";
 			      	
 			      	System.out.println(controladorFornecedor.cadastrarFornecedor(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
-			      	
+			      	System.out.println(controladorFornecedor.buscarFornecedor(nome).toString());
 					break;
 				case 3:
 					
@@ -197,16 +197,38 @@ public class Main {
 					codigo = ler.nextInt();
 					System.out.println("Digite quanto custa o produto: ");
 					precoCompra = ler.nextDouble();
-					System.out.println("Digite quantos produtos temos desse tipo: ");
+					System.out.println("Digite a quantidade desse produto: ");
 					quantidade = ler.nextInt();
 					
 					System.out.println(controladorProduto.cadastrarProduto(nome, codigo, precoCompra, quantidade));
 					break;
 				case 4:
+					
 					break;
 				case 5:
-			      // código 5
+					
+					ProdutoController controller = new ProdutoController();
+					String nomeProduto;
+					
+					System.out.println("Digite o nome do produto a ser atualizado: ");
+					nomeProduto = ler.nextLine();
+					
+					if(controller.buscarProduto(nomeProduto) != null) {
+						System.out.println("Digite o nome do seu produto: ");
+						nome = ler.nextLine();
+						System.out.println("Digite o codigo do produto: ");
+						codigo = ler.nextInt();
+						System.out.println("Digite quanto custa o produto: ");
+						precoCompra = ler.nextDouble();
+						System.out.println("Digite a quantidade desse produto: ");
+						quantidade = ler.nextInt();
+						
+						System.out.println(controller.alterarProduto(nomeProduto, codigo, precoCompra, quantidade));
+					}else {
+						System.out.println("Esse produto não está cadastrado.");
+					}
 					break;
+					
 				case 6:
 				 // código 6
 					break;
