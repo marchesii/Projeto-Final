@@ -37,4 +37,10 @@ public class DataNascimento {
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
+
+	@Override
+	public String toString() {
+		return "DataNascimento [dia=" + dia + ", mes=" + mes + ", ano=" + ano + "]";
+	}
+	
 }

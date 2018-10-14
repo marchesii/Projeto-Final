@@ -1,6 +1,7 @@
 package model;
 
 public abstract class Pessoa{
+	
 	protected String nome;
 	protected String sobreNome;
 	protected String email;
@@ -75,4 +76,9 @@ public abstract class Pessoa{
 		this.endereco = endereco;
 	}
 
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", sobreNome=" + sobreNome + ", email=" + email + ", telefone=" + telefone
+				+ ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", endereco=" + endereco + "]";
+	}
 }

@@ -111,7 +111,8 @@ public class Main {
 			      	sexo = "l";
 			      	
 			      	System.out.println(controladorCliente.cadastrarCliente(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
-					break;
+			      	System.out.println(controladorCliente.buscarCliente(nome).toString());
+			      	break;
 				case 2:
 					
 					FornecedorController controladorFornecedor = new FornecedorController();
@@ -181,6 +182,7 @@ public class Main {
 			      	sexo = "l";
 			      	
 			      	System.out.println(controladorFornecedor.cadastrarFornecedor(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
+			      	
 					break;
 				case 3:
 					
@@ -201,7 +203,6 @@ public class Main {
 					System.out.println(controladorProduto.cadastrarProduto(nome, codigo, precoCompra, quantidade));
 					break;
 				case 4:
-					
 					break;
 				case 5:
 			      // código 5
