@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Pessoa{
+public abstract class Pessoa implements Cliente{
 	
 	protected String nome;
 	protected String sobreNome;

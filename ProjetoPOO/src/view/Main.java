@@ -8,7 +8,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		Integer op;
-		
+		ProdutoController controller = new ProdutoController();
+		FornecedorController controladorFornecedor = new FornecedorController();
+      	ClienteController controladorCliente = new ClienteController();
+      	
 		Scanner ler = new Scanner(System.in);
 		
 		do {
@@ -44,7 +47,6 @@ public class Main {
 			      	Integer cep;
 			      	String cidade;
 			      	Boolean pessoa;
-			      	ClienteController controladorCliente = new ClienteController();
 			      	
 			      	/*
 			      	System.out.println("Por favor digite seu nome: ");
@@ -101,7 +103,6 @@ public class Main {
 			      	anoNascimento = 99;
 			      	telefone = (double) 664517;
 			      	cidade = "a";
-			      	pessoa = true;
 			      	complemento = "b";
 			      	numero = 123;
 			      	bairro = "k";
@@ -115,8 +116,6 @@ public class Main {
 			      	break;
 				case 2:
 					
-					FornecedorController controladorFornecedor = new FornecedorController();
-					
 			      	/*
 			      	System.out.println("Por favor digite seu nome: ");
 			      	nome = ler.nextLine();
@@ -172,7 +171,6 @@ public class Main {
 			      	anoNascimento = 99;
 			      	telefone = (double) 664517;
 			      	cidade = "a";
-			      	pessoa = true;
 			      	complemento = "b";
 			      	numero = 123;
 			      	bairro = "k";
@@ -186,7 +184,6 @@ public class Main {
 					break;
 				case 3:
 					
-					ProdutoController controladorProduto = new ProdutoController();
 					Integer codigo;
 					Double precoCompra;
 					Integer quantidade;
@@ -200,14 +197,13 @@ public class Main {
 					System.out.println("Digite a quantidade desse produto: ");
 					quantidade = ler.nextInt();
 					
-					System.out.println(controladorProduto.cadastrarProduto(nome, codigo, precoCompra, quantidade));
+					System.out.println(controller.cadastrarProduto(nome, codigo, precoCompra, quantidade));
 					break;
 				case 4:
 					
 					break;
 				case 5:
 					
-					ProdutoController controller = new ProdutoController();
 					String nomeProduto;
 					
 					System.out.println("Digite o nome do produto a ser atualizado: ");
@@ -227,10 +223,12 @@ public class Main {
 					}else {
 						System.out.println("Esse produto não está cadastrado.");
 					}
+					
 					break;
 					
 				case 6:
-				 // código 6
+				 	
+					System.out.println(controller.listaProdutos());
 					break;
 			}
 			

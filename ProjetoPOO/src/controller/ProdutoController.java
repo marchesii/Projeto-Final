@@ -2,12 +2,17 @@ package controller;
 
 import model.PFinal;
 import model.Produto;
+import model.array.ArrayCliente;
 import model.array.ArrayProduto;
 
 public class ProdutoController {
 	
 	private ArrayProduto arrayProduto;
 	private Produto produto;
+	
+	public ProdutoController() {
+		arrayProduto = ArrayProduto.getInstance();
+	}
 	
 	public String cadastrarProduto(String nome, Integer codigo, Double precoCompra, Integer quantidade) {
 		String resposta;
@@ -76,5 +81,13 @@ public class ProdutoController {
 		}
 		
 		return produto;
+	}
+	
+	/**
+	 * Método usado para listar todos os produtos
+	 * @return
+	 */
+	public String listaProdutos() {
+		return arrayProduto.list();
 	}
 }

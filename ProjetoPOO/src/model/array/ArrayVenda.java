@@ -6,38 +6,27 @@ import java.util.Iterator;
 import model.Pessoa;
 import model.Produto;
 
-public class ArrayProduto {
+public class ArrayVenda {
 	
-	private ArrayList<Produto> produtos;
+	private ArrayVenda arrayVenda;
 	
-	private static ArrayProduto uniqueInstance;
+	private ArrayList<Produto> vendas;
 	
-	/**
-	 * Padrao Singleton para Array,mater uma única instancia em memória da array.
-	 * @return Instancia da Array
-	 */
-	public static synchronized ArrayProduto getInstance() {
-		if (uniqueInstance == null) {
-			uniqueInstance = new ArrayProduto();
-		}
-		return uniqueInstance;
-	}
-	
-	public ArrayProduto(){
-		produtos = new ArrayList<>();
+	public ArrayVenda() {
+		vendas = new ArrayList<>();
 	}
 
 	/**
 	 * Percorre o array e caso o produto não esteja cadastrado, cadastra o mesmo.
 	 * 
-	 * @param p , produto que será cadastrado.
+	 * @param v , produto que será cadastrado.
 	 * @return result, true para sucesso e false para fracasso no cadastramento.
 	 */
-	public boolean add(Produto p){
+	public boolean add(Produto v){
 		Boolean status = false;
 		
-		if(search(p.getNome()) == null) {
-			produtos.add(p);
+		if(search(v.getNome()) == null) {
+			vendas.add(v);
 			status = true;
 		}
 		
@@ -52,9 +41,9 @@ public class ArrayProduto {
 	public boolean remove(String nome) {
 		Boolean status = false;
 		
-		for(Produto produto : produtos) {
+		for(Produto produto : vendas) {
 			if(produto.getNome().equals(nome)) {
-				produtos.remove(produto);
+				vendas.remove(produto);
 				status = true;
 			}
 		}
@@ -70,7 +59,7 @@ public class ArrayProduto {
 	public boolean alter(Produto p) {
 		Boolean status = false;
 		
-		for(Produto produto : produtos) {
+		for(Produto produto : vendas) {
 			if(produto.getNome().equals(p.getNome())) {
 				remove(p.getNome());
 				add(p);
@@ -89,7 +78,7 @@ public class ArrayProduto {
 	public Produto search(String nome) {
 		Produto result = null;
 		
-		for (Produto produto : produtos) {
+		for (Produto produto : vendas) {
 			if(produto.getNome().equals(nome)) {
 				result = produto;
 			}
@@ -101,7 +90,7 @@ public class ArrayProduto {
 	public String list() {
 		String resultado = "";
 		
-		for(Produto produto : produtos) {
+		for(Produto produto : vendas) {
 			resultado = produto.toString() + "\n" + resultado;
 		}
 		

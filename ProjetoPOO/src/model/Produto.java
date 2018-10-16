@@ -6,6 +6,8 @@ public abstract class Produto {
 	private Integer codigo;
 	private Double precoCompra;
 	private Integer quantidade;
+	private Fornecedor fornecedor;
+	private Integer minimo;
 	
 	public Produto(String nome, Integer codigo, Double precoCompra, Integer quantidade) {
 		setNome(nome);
@@ -44,5 +46,26 @@ public abstract class Produto {
 
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+	
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	
+	public void setMinimo(Integer minimo) {
+		this.minimo = minimo;
+	}
+	
+	public Integer getMinimo() {
+		return minimo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", codigo=" + codigo + ", fornecedor=" + fornecedor + ", precoCompra=" + precoCompra + ", quantidade=" + quantidade + "]";
 	}
 }
