@@ -2,7 +2,6 @@ package controller;
 
 import model.PFinal;
 import model.Produto;
-import model.array.ArrayCliente;
 import model.array.ArrayProduto;
 
 public class ProdutoController {

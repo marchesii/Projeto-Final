@@ -1,7 +1,6 @@
 package model.array;
 
 import java.util.ArrayList;
-
 import model.Pessoa;
 import model.PessoaJuridica;
 

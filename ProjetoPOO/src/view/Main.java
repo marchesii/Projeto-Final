@@ -19,10 +19,11 @@ public class Main {
 			System.out.println("1 - Cadastro de Clientes ");
 			System.out.println("2 - Cadastro de Fornecedores ");
 			System.out.println("3 - Cadastro de Produtos ");
-			System.out.println("4 - Adicionar Fornecimento ");
-			System.out.println("5 - Atualizaçao de Produtos ");
-			System.out.println("6 - Relatorios ");
-			System.out.println("7 - Sair");
+			System.out.println("4 - Adicionar Orçamento ");
+			System.out.println("5 - Adicionar Fornecedor Principal ");
+			System.out.println("6 - Atualizaçao de Produtos ");
+			System.out.println("7 - Relatorios ");
+			System.out.println("8 - Sair");
 			System.out.print("Opção: ");
 			
 			op = ler.nextInt();
@@ -46,9 +47,8 @@ public class Main {
 			      	String bairro;
 			      	Integer cep;
 			      	String cidade;
-			      	Boolean pessoa;
 			      	
-			      	/*
+
 			      	System.out.println("Por favor digite seu nome: ");
 			      	nome = ler.nextLine();
 			      	System.out.println("Por favor digite seu sobrenome: ");
@@ -82,41 +82,12 @@ public class Main {
 			      	ler.nextLine();
 			      	System.out.println("Digite a cidade no qual você mora: ");
 			      	cidade = ler.nextLine();
-			      	System.out.println("Você deseja se cadastrar como 1- Cliente Fisico, 2- Cliente Jurídico?: ");
-			      	if(ler.nextInt() == 2) {
-			      		pessoa = false;
-			      	}else {
-			      		System.out.println("Digite 1 caso deseje ser um Cliente Fisico");
-			      		if(ler.nextInt() == 1) {
-			      			pessoa = true;
-			      		}else {
-			      			pessoa = false;
-			      		}
-			      	}
-			      	*/
-			      	//System.out.println(controladorCliente.cadastrarCliente(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
-			      	nome = "Andre";
-			      	sobreNome = "Marchesi";
-			      	documento = "alo";
-			      	diaNascimento = 30;
-			      	mesNascimento = 04;
-			      	anoNascimento = 99;
-			      	telefone = (double) 664517;
-			      	cidade = "a";
-			      	complemento = "b";
-			      	numero = 123;
-			      	bairro = "k";
-			      	cep = 1;
-			      	rua = "o";
-			      	email = "k";
-			      	sexo = "l";
 			      	
 			      	System.out.println(controladorCliente.cadastrarCliente(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
 			      	System.out.println(controladorCliente.buscarCliente(nome).toString());
 			      	break;
 				case 2:
 					
-			      	/*
 			      	System.out.println("Por favor digite seu nome: ");
 			      	nome = ler.nextLine();
 			      	System.out.println("Por favor digite seu sobrenome: ");
@@ -150,35 +121,7 @@ public class Main {
 			      	ler.nextLine();
 			      	System.out.println("Digite a cidade no qual você mora: ");
 			      	cidade = ler.nextLine();
-			      	System.out.println("Você deseja se cadastrar como 1- Cliente Fisico, 2- Cliente Jurídico?: ");
-			      	if(ler.nextInt() == 2) {
-			      		pessoa = false;
-			      	}else {
-			      		System.out.println("Digite 1 caso deseje ser um Cliente Fisico");
-			      		if(ler.nextInt() == 1) {
-			      			pessoa = true;
-			      		}else {
-			      			pessoa = false;
-			      		}
-			      	}
-			      	*/
-			      	//System.out.println(controladorCliente.cadastrarCliente(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
-			      	nome = "Andre";
-			      	sobreNome = "Marchesi";
-			      	documento = "alo";
-			      	diaNascimento = 30;
-			      	mesNascimento = 04;
-			      	anoNascimento = 99;
-			      	telefone = (double) 664517;
-			      	cidade = "a";
-			      	complemento = "b";
-			      	numero = 123;
-			      	bairro = "k";
-			      	cep = 1;
-			      	rua = "o";
-			      	email = "k";
-			      	sexo = "l";
-			      	
+
 			      	System.out.println(controladorFornecedor.cadastrarFornecedor(nome, sobreNome, documento, email, telefone, diaNascimento, mesNascimento, anoNascimento, sexo, rua, numero, complemento, bairro, cep, cidade));
 			      	System.out.println(controladorFornecedor.buscarFornecedor(nome).toString());
 					break;
@@ -200,12 +143,19 @@ public class Main {
 					System.out.println(controller.cadastrarProduto(nome, codigo, precoCompra, quantidade));
 					break;
 				case 4:
-					
 					break;
 				case 5:
-					
-					String nomeProduto;
-					
+					System.out.println("Qual produto vai ganhar um novo fornecedor?");
+					String nomeProduto = ler.nextLine();
+					System.out.println("Qual fornecedor irá distribuir esse produto?");
+					String fornecedorNome = ler.nextLine();
+					Produto produto = controller.buscarProduto(nomeProduto);
+					Fornecedor fornecedor = controladorFornecedor.buscarFornecedor(fornecedorNome);
+					if(fornecedor != null && produto != null) {
+						produto.setFornecedor(fornecedor);
+					}
+					break;
+				case 6:
 					System.out.println("Digite o nome do produto a ser atualizado: ");
 					nomeProduto = ler.nextLine();
 					
@@ -226,13 +176,12 @@ public class Main {
 					
 					break;
 					
-				case 6:
-				 	
+				case 7:
 					System.out.println(controller.listaProdutos());
 					break;
 			}
 			
-		}while (op != 7);
+		}while (op != 8);
 	}
 
 }

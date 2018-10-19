@@ -8,7 +8,14 @@ public class PessoaFisica extends Pessoa{
 		super(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco);
 		this.cpf = cpf;
 	}
-
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
 	@Override
 	public String comprar() {
 		// TODO Auto-generated method stub

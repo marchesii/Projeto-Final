@@ -4,15 +4,14 @@ public abstract class Produto {
 	
 	private String nome;
 	private Integer codigo;
-	private Double precoCompra;
 	private Integer quantidade;
 	private Fornecedor fornecedor;
-	private Integer minimo;
+	private Double precoVenda;
 	
-	public Produto(String nome, Integer codigo, Double precoCompra, Integer quantidade) {
+	public Produto(String nome, Integer codigo, Double precoVenda, Integer quantidade) {
 		setNome(nome);
 		setCodigo(codigo);
-		setPrecoCompra(precoCompra);
+		setPrecoVenda(precoVenda);
 		setQuantidade(quantidade);
 	}
 
@@ -32,12 +31,12 @@ public abstract class Produto {
 		this.codigo = codigo;
 	}
 
-	public Double getPrecoCompra() {
-		return precoCompra;
+	public Double getPrecoVenda() {
+		return precoVenda;
 	}
 
-	public void setPrecoCompra(Double precoCompra) {
-		this.precoCompra = precoCompra;
+	public void setPrecoVenda(Double precoVenda) {
+		this.precoVenda = precoVenda;
 	}
 
 	public Integer getQuantidade() {
@@ -56,16 +55,9 @@ public abstract class Produto {
 		this.fornecedor = fornecedor;
 	}
 	
-	public void setMinimo(Integer minimo) {
-		this.minimo = minimo;
-	}
-	
-	public Integer getMinimo() {
-		return minimo;
-	}
 	
 	@Override
 	public String toString() {
-		return "Produto [nome=" + nome + ", codigo=" + codigo + ", fornecedor=" + fornecedor + ", precoCompra=" + precoCompra + ", quantidade=" + quantidade + "]";
+		return "Produto [nome=" + nome + ", codigo=" + codigo + ", fornecedor=" + fornecedor + ", precoCompra=" + precoVenda + ", quantidade=" + quantidade + "]";
 	}
 }

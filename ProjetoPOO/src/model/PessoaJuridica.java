@@ -13,6 +13,14 @@ public class PessoaJuridica extends Pessoa implements Fornecedor{
 		venda = new VendaController();
 	}
 	
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+	
+	public String getCnpj() {
+		return cnpj;
+	}
+	
 	@Override
 	public String venda(Produto produto) {
 		venda.adicionarProduto(produto);

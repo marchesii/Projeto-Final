@@ -1,14 +1,11 @@
 package controller;
 
-import model.PFinal;
 import model.Produto;
-import model.array.ArrayCliente;
 import model.array.ArrayCompra;
 
 public class CompraController {
 	
 	private ArrayCompra arrayCompra;
-	private Produto produto;
 	
 	public CompraController() {
 		arrayCompra = new ArrayCompra();

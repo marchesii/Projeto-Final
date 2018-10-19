@@ -1,9 +1,6 @@
 package model.array;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import model.Pessoa;
 import model.Produto;
 
 public class ArrayProduto {
