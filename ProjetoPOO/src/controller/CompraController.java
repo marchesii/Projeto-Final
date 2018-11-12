@@ -1,11 +1,16 @@
 package controller;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import model.Produto;
 import model.array.ArrayCompra;
 
-public class CompraController {
+public class CompraController{
 	
 	private ArrayCompra arrayCompra;
+
 	
 	public CompraController() {
 		arrayCompra = new ArrayCompra();
@@ -50,9 +55,23 @@ public class CompraController {
 	
 	/**
 	 * Método usado para listar todos os produtos
-	 * @return 
+	 * @return retorna os produtos que estão sendo comprados
 	 */
 	public String listaProdutos() {
 		return arrayCompra.list();
+	}
+	
+	/**
+	 * Método que finaliza compra e atualiza o log de estoque
+	 * @return 
+	 * @throws IOException
+	 */
+	public boolean finalizaCompra() throws IOException {
+		boolean status = false;
+		EstoqueController estoque = EstoqueController.getInstance();
+		
+		estoque.adicionarEstoque(this.listaProdutos());
+		
+		return status;
 	}
 }

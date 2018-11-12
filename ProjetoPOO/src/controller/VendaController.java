@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+
 import model.Produto;
 import model.array.ArrayVenda;
 
@@ -54,5 +56,14 @@ public class VendaController {
 	 */
 	public String listaProdutos() {
 		return arrayVenda.list();
+	}
+	
+	public boolean finalizaVenda() throws IOException {
+		boolean status = false;
+		EstoqueController estoque = EstoqueController.getInstance();
+		
+		estoque.removeEstoque(this.listaProdutos());
+		
+		return status;
 	}
 }
