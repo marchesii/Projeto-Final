@@ -5,11 +5,11 @@ import java.io.IOException;
 import model.Produto;
 import model.array.ArrayVenda;
 
-public class VendaController {
+public class ProdutosFornecidosController {
 	
 	private ArrayVenda arrayVenda;
 	
-	public VendaController() {
+	public ProdutosFornecidosController() {
 		arrayVenda = new ArrayVenda();
 	}
 	

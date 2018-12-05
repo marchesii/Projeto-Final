@@ -1,16 +1,18 @@
 package model;
 
-import controller.VendaController;
+import controller.ProdutosFornecidosController;
 
 public class PessoaJuridica extends Pessoa implements Fornecedor{
 	
 	private String cnpj;
-	private VendaController venda;
+	private ProdutosFornecidosController produtos;
+	private Integer minimo;
+	
 	
 	public PessoaJuridica(String nome, String sobreNome, String email, Double telefone, DataNascimento dataNascimento, String sexo, Endereco endereco, String cnpj) {
 		super(nome, sobreNome, email, telefone, dataNascimento, sexo, endereco);
 		this.cnpj = cnpj;
-		venda = new VendaController();
+		produtos = new ProdutosFornecidosController();
 	}
 	
 	public void setCnpj(String cnpj) {
@@ -22,14 +24,28 @@ public class PessoaJuridica extends Pessoa implements Fornecedor{
 	}
 	
 	@Override
-	public String venda(Produto produto) {
-		venda.adicionarProduto(produto);
-		return venda.listaProdutos();
+	public void adicionarProdutoFornecido(Produto produto) {
+		produtos.adicionarProduto(produto);
+	}
+	
+	@Override
+	public String fornecimentos() {
+		return produtos.listaProdutos();
 	}
 
 	@Override
 	public String comprar() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Integer getMinimo() {
+		return minimo;
+	}
+
+	@Override
+	public void setMinimo(Integer a) {
+		this.minimo = a;
 	}
 }

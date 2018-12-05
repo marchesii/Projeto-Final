@@ -143,6 +143,7 @@ public class Main {
 					System.out.println(controller.cadastrarProduto(nome, codigo, precoCompra, quantidade));
 					break;
 				case 4:
+					System.out.println("Digite quais produtos você quer adicionar a sua lista de produtos: ");
 					break;
 				case 5:
 					System.out.println("Qual produto vai ganhar um novo fornecedor?");
@@ -150,6 +151,11 @@ public class Main {
 					System.out.println("Qual fornecedor irá distribuir esse produto?");
 					String fornecedorNome = ler.nextLine();
 					Produto produto = controller.buscarProduto(nomeProduto);
+					System.out.println("Qual o minimo de produtos para venda?(0 para padrao)");
+					Integer min = ler.nextInt();
+					if(min != 0) {
+						produto.setMinimo(min);
+					}
 					Fornecedor fornecedor = controladorFornecedor.buscarFornecedor(fornecedorNome);
 					if(fornecedor != null && produto != null) {
 						produto.setFornecedor(fornecedor);

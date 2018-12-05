@@ -20,5 +20,6 @@ public class PessoaFisica extends Pessoa{
 	public String comprar() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
+
 }

@@ -7,6 +7,7 @@ public abstract class Produto {
 	private Integer quantidade;
 	private Fornecedor fornecedor;
 	private Double precoVenda;
+	private Integer minimo;
 	
 	public Produto(String nome, Integer codigo, Double precoVenda, Integer quantidade) {
 		setNome(nome);
@@ -15,6 +16,14 @@ public abstract class Produto {
 		setQuantidade(quantidade);
 	}
 
+	public void setMinimo(Integer minimo) {
+		this.minimo = minimo;
+	}
+	
+	public Integer getMinimo() {
+		return minimo;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -52,6 +61,7 @@ public abstract class Produto {
 	}
 	
 	public void setFornecedor(Fornecedor fornecedor) {
+		setMinimo(fornecedor.getMinimo());
 		this.fornecedor = fornecedor;
 	}
 	

@@ -2,6 +2,12 @@ package model;
 
 public interface Fornecedor {
 
-	String venda(Produto produto);
+	String fornecimentos();
+	
+	void adicionarProdutoFornecido(Produto produto);
+
+	Integer getMinimo();
+	
+	void setMinimo(Integer a);
 		
 }
